@@ -6,7 +6,7 @@ First, is not related to _Java_. Actually the name is more an artifact of market
 
 Java + script = _Javascript_ was born
 
-Nowadays the official name of the language is _ECMAScript_. This was specified by the TC39 (_Technical Committee number 39_) and formalized by the [ECMA](https://www.ecma-international.org/) Standards. Having it's own revision every year, so for example  your browser can be running something like _ECMAScript 2019_ or _ES2019_ for short. 😱
+Nowadays the official name of the language is _ECMAScript_. This was specified by the TC39[^1] (_Technical Committee number 39_) and formalized by the [ECMA](https://www.ecma-international.org/) Standards. Having it's own revision every year, so for example  your browser can be running something like _ECMAScript 2019_ or _ES2019_ for short. 😱
 
 That's why there is some kind of implicit agreement between programmers to call the language _ES20`XX`_ or just _JS_ in order to avoid confusion. 😵
 
@@ -35,9 +35,9 @@ The `alert(..)` function is not included in the JS specification, but is somethi
 
 Even the well-known `console.log(..)` and all the `console.*` methods are not specified in JS, but due to it's universal utility is defined in most of the JS environments.
 
-## It’s Not Always JS
-
 ## Paradigms 
+
+This section treats the paradigms within JS.
 
 ## Backwards & Forwards
 
@@ -50,3 +50,6 @@ Even the well-known `console.log(..)` and all the `console.*` methods are not sp
 ## Web Assembly (WASM)
 
 ## Strict Mode 🤨
+
+
+[^1]: My reference.
