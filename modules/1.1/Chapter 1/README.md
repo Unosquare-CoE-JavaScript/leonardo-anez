@@ -94,7 +94,44 @@ The reason to have this kind of tools is the encourage developers to use the lat
 
 ## Filling the Gaps
 
+> If the forwards-compatibility issue is not related to new syntax, but rather to a missing API method that was only recently added, the most common solution is to provide a definition for that missing API method that stands in and acts as if the older environment had already had it natively defined. This pattern is called a **polyfill**.
+
+An example of this goes as follows[^3]:
+
+The function `Math.trunc(n)` will fail in some old engines (very outdated ones).
+
+So, for this particular case, the polyfill for `Math.trunc` is a script that implements it, like this:
+
+```javascript
+if (!Math.trunc) { // if no such function
+  // implement it
+  Math.trunc = function(number) {
+    // Math.ceil and Math.floor exist even in ancient JavaScript engines
+    return number < 0 ? Math.ceil(number) : Math.floor(number);
+  };
+}
+```
+
+Transpilation and polyfilling are two highly effective techniques for addressing that gap between code that uses the latest stable features in the language and the old environments a site or application needs to still support.
+
 ## Deep Dive Javascript
+
+<img src="../assets/images/inter_comp.png" alt="drawing" width="320"/>
+
+This was an interesting topic to read about because I always took for granted that Javascript is intrerpreted, but with some things under the hood that made me feel, that wasn't entirely true.
+
+The first thing that made me think JS is just another interpreted language was that usually we distribute the source code, not the binary form. But this actually is a misconception, it doesn’t really matter so much anymore what form of a program gets passed around. Making a recap on how scripted or interpreted languages work, they're generally executed top-down and line-by-line 
+
+<img src="../assets/images/scripted.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/>
+
+in contrast to compiled languages that go thru the process of parsing. In this processing model, an invalid command (such as broken syntax) would be caught during the parsing phase, before any execution has begun, and none of the program would run.
+
+<img src="../assets/images/compiled.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/>
+
+
+> JS source code is parsed before it is executed. The specification requires as much, because it calls for “early errors”—statically determined errors in code, such as a duplicate parameter name—to be reported before the code starts executing. Those errors cannot be recognized without the code having been parsed.JS source code is parsed before it is executed. The specification requires as much, because it calls for “early errors”—statically determined errors in code, such as a duplicate parameter name—to be reported before the code starts executing. Those errors cannot be recognized without the code having been parsed.
+
+So **JS is a parsed language**, but is it compiled?
 
 ## Web Assembly (WASM)
 
@@ -104,3 +141,5 @@ The reason to have this kind of tools is the encourage developers to use the lat
 [^1]: Ecma International's TC39, [https://tc39.es](https://tc39.es/#:~:text=Ecma%20International's%20TC39%20is%20a,evolve%20the%20definition%20of%20JavaScript.)
 
 [^2]: [OOP vs Functional vs Procedural](https://www.scaler.com/topics/java/oop-vs-functional-vs-procedural/)
+
+[^3]: Example of [Polyfill](https://javascript.info/polyfills)
