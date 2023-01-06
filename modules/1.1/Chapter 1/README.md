@@ -82,7 +82,15 @@ const myObj = Object.fromEntries(fruits);
 TypeError: Object.fromEntries is not a function
 ```
 
-So in order to overcome this the solution is *transpiling*. It's a term to describe using a tool to convert the source code of a program from one form to another (but still as textual source code). Typically, forwards-compatibility problems related to syntax are solved by using a transpiler like _Babel_ to convert from that newer JS syntax version to an equivalent older syntax.
+So in order to overcome this issue, the solution is *transpiling*. It's a term to describe using a tool to convert the source code of a program from one form to another (but still as textual source code). Typically, forwards-compatibility problems related to syntax are solved by using a transpiler like _Babel_ to convert from that newer JS syntax version to an equivalent older syntax.
+
+| Code      | Babel |
+| ----------- | ----------- |
+|   ![](../assets/images/vanilla.png)  | ![](../assets/images/babel.png)   |
+
+The reason to have this kind of tools is the encourage developers to use the latest version of JS so the code can be clean and communicates its ideas most effectively.
+
+> Developers should focus on writing the clean, new syntax forms, and let the tools take care of producing a forwards-compatible version of that code that is suitable to deploy and run on the oldest-supported JS engine environments. _(Page 30)_
 
 ## Filling the Gaps
 
