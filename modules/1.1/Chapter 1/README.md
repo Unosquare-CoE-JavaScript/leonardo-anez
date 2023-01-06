@@ -24,7 +24,7 @@ alert("Hello, this is an Alert 😺")
 ```
 This line of code displays the following:
 
-![](../assets/images/alert2.png)
+![](../assets/images/alert.png)
 
 The `alert(..)` function is not included in the JS specification, but is something present in all web JS environments. That's why diferent environments like browsers or _NodeJS_ add APIs to provide JS programs with environment-specific capabilities. Lets see some examples of these API capabilities:
 
