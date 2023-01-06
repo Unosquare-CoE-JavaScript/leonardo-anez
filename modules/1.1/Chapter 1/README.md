@@ -122,12 +122,17 @@ This was an interesting topic to read about because I always took for granted th
 
 The first thing that made me think JS is just another interpreted language was that usually we distribute the source code, not the binary form. But this actually is a misconception, it doesn’t really matter so much anymore what form of a program gets passed around. Making a recap on how scripted or interpreted languages work, they're generally executed top-down and line-by-line 
 
-<img src="../assets/images/scripted.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/>
+
+<p align="center">
+  <img src="../assets/images/scripted.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/>
+</p>
 
 in contrast to compiled languages that go thru the process of parsing. In this processing model, an invalid command (such as broken syntax) would be caught during the parsing phase, before any execution has begun, and none of the program would run.
 
-<img src="../assets/images/compiled.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/>
 
+<p align="center">
+  <img src="../assets/images/compiled.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/>
+</p>
 
 > JS source code is parsed before it is executed. The specification requires as much, because it calls for “early errors”—statically determined errors in code, such as a duplicate parameter name—to be reported before the code starts executing. Those errors cannot be recognized without the code having been parsed.JS source code is parsed before it is executed. The specification requires as much, because it calls for “early errors”—statically determined errors in code, such as a duplicate parameter name—to be reported before the code starts executing. Those errors cannot be recognized without the code having been parsed.
 
