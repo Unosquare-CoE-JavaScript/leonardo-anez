@@ -41,9 +41,9 @@ This section treats the paradigms within JS. But "What is a paradigm?" Basically
 
 Some important categories[^2] are:
 
-> * **Procedural**: organizes code in a top-down, linear progression through a pre-determined set of operations, usually collected together in related units called procedures. Examples: _C, Algol_
-> * **Object-Oriented (OO/classes)**: organizes code by collecting logic and data together into units called classes.  Examples: _Java, C#_
-> * **Functional (FP)**: organizes code into functions. Examples: _Haskell, Lisp_
+* **Procedural**: organizes code in a top-down, linear progression through a pre-determined set of operations, usually collected together in related units called procedures. Examples: _C, Algol_
+* **Object-Oriented (OO/classes)**: organizes code by collecting logic and data together into units called classes.  Examples: _Java, C#_
+* **Functional (FP)**: organizes code into functions. Examples: _Haskell, Lisp_
 
 Of course there are languages that support more than one code patterns, these are called _«multi-paradigm languages»_. In our case Javascript is on of them.
 
