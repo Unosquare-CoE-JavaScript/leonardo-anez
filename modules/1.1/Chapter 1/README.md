@@ -132,15 +132,39 @@ in contrast to compiled languages that go thru the process of parsing. In this p
 
 <p align="center">
   <img src="../assets/images/compiled.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/>
+  
 </p>
 
 > JS source code is parsed before it is executed. The specification requires as much, because it calls for “early errors”—statically determined errors in code, such as a duplicate parameter name—to be reported before the code starts executing. Those errors cannot be recognized without the code having been parsed.JS source code is parsed before it is executed. The specification requires as much, because it calls for “early errors”—statically determined errors in code, such as a duplicate parameter name—to be reported before the code starts executing. Those errors cannot be recognized without the code having been parsed.
 
 So **JS is a parsed language**, but is it compiled?
 
+The parsed JS is converted to an optimized (binary) form, and that “code” is subsequently executed; the engine does not commonly switch back into line-by-line execution mode after it has finished all the hard work of parsing—most languages/engines wouldn’t, because that would be highly inefficient.
+
+So, in summary the execution goes as follow:
+
+1. After a program leaves a developer’s editor, it gets transpiled by Babel, then packed by Webpack (and perhaps halfa dozen other build processes), then it gets delivered in that very different form to a JS engine.
+
+2. The JS engine parses the code to an AST.
+
+3. Then the engine converts that AST to a kind-of byte code, a binary intermediate representation (IR), which is then refined/converted even further by the optimizing JIT compiler.
+
+4. The JS VM executes the program.
+
+<p align="center">
+<img src="../assets/images/V8.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/>
+V8 Execution Process
+</p>
+
 ## Web Assembly (WASM)
 
+This is a section related to performance. As a fun fact there was port of [Unreal 3 game from C to JS.](https://www.wired.com/2013/03/mozilla-epic-bring-unreal-3-gaming-engine-to-the-web/) For that a subset of the JS language was used: _ASM.js_. It was never intended to be code written by developers, but a representation of code from other languages into JS. After some years Web Assembly (WASM) was released. _WASM_ is similar to _ASM.js_ in that its original intent was to provide a path for non-JS programs (C, etc.) to be converted to a form that could run in the JS engine.
+
+ ![](../assets/images/wasm.png)
+
 ## Strict Mode 🤨
+
+With the release of ES5 (2009), JS added `strict mode` as a mechanism for encouraging better JS programs. But, why strict mode? Even if programmers in a team are developing something are strict enough using linters or any other tool. `strict mode` are in the form of early errors, meaning errors that aren’t strictly syntax errors but are still thrown at compile time (before the code is run).
 
 
 [^1]: Ecma International's TC39, [https://tc39.es](https://tc39.es/#:~:text=Ecma%20International's%20TC39%20is%20a,evolve%20the%20definition%20of%20JavaScript.)
