@@ -152,7 +152,7 @@ So, in summary the execution goes as follow:
 4. The JS VM executes the program.
 
 <p align="center">
-<img src="../assets/images/V8.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/>
+<img src="../assets/images/V8.png" alt="drawing" width="420" style="display: block; margin: 0 auto"/> <br>
 V8 Execution Process
 </p>
 
