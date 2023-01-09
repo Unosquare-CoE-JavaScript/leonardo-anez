@@ -100,8 +100,88 @@ let lastname = "Freeman"
 ```
 But, what is the difference between them?
 
+To summarize `let` allows a more limited access to the variable than `var`. This is called **block scoping** as opposed to regular or function scoping.
+
+```javascript
+var adult = true;
+if (adult) { 
+    var name = "Gordon"; 
+    let age = 27; 
+    console.log("Shhh, this is a secret!");
+}
+console.log(name); // Gordon
+console.log(age); // Error!
+```
+
+Block-scoping is very useful for limiting how widespread variable declarations are in our programs, which helps prevent accidental overlap of their names.
+
+Another way to declare variables is by using the `const` declaration. It’s like let but has an additional limitation that it must be given a value at the moment it’s declared, and cannot be re-assigned a different value later. Basically `const` declared variables are not **unchangeable**, they just cannot be re-assigned.  Lets see an example:
+
+```javascript
+
+const games = ["Blasphemous", "Half-Life", "God of War"];
+
+games[1]= "Halo";   // This will work
+games = [1,2,3]     // Error!
+
+```
+
 ## Functions
 
+| Function Declaration      | Function Expression |
+| ----------- | ----------- |
+|   ![](../assets/images/func_declaration.png)  | ![](../assets/images/func_expression.png)   |
+
+Different from the function declaration form, a function expression is not associated with its identifier until that statement during runtime. In JS, functions are values that can be assigned and passed around. Thanks to that property functions can be assigned as properties on objects:
+
+```javascript
+var whatToSay = {
+    greeting() {
+        console.log("Hello!");
+    }, 
+    question() { 
+        console.log("What's your name?"); 
+    }, 
+    answer() { 
+        console.log("My name is Kyle."); 
+    }
+}; 
+
+whatToSay.question();
+```
 ## Comparisons
 
+Being aware of the difference between **equality** and **equivalence** is an important thing in javascript.
+
+### The strict equality operator (`===`)
+
+Basically the operator does the following, it checks both the value and the type. But there’s more to it than that, though. All value comparisons in JS consider the type of the values being compared, not just the `===` operator. Specifically, `===` **disallows** any sort of type conversion (aka, “coercion”) in its comparison, where other JS comparisons do allow coercion.
+
+But there is a twist on this theory:
+
+ ![](../assets/images/strict_equality.jpg) 
+
+ ```javascript
+ NaN === NaN;  // false
+ 0 === -0;     // true
+ ```
+
+ The story gets even more complicated when we consider comparisons of object values (non-primitives) 🥴: 
+
+ ```javascript
+[ 1, 2, 3 ] === [ 1, 2, 3 ];  // false 
+{ a: 42 } === { a: 42 }       // false
+(x => x * 2) === (x => x * 2) // false
+ ```
+
+This happens because all object values are held by reference.
+
 ### Coercive Comparisons
+
+If the value types being compared are different, the `==` differs from `===` in that it allows coercion before the comparison. In other words, they both want to compare values of like types, but == allows type conversions first, and once the types have been converted to be the same on both sides, then `==` does the same thing as `===`. Due to this nature `==` prefers primitive and numeric comparisons so we can avoid this kind of things:
+
+> `"" == 0` or `0 == false`.
+
+## How We Organize in JS
+
+Two major patterns for organizing code (data and behavior) are used broadly across the JS ecosystem: classes and modules.
